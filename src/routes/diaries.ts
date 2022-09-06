@@ -1,13 +1,13 @@
-import express from "express"; // ESModule
+import express from 'express' // ESModule
 
-const router = express.Router();
+const router = express.Router()
 
-router.get("/", (_req, res) => {
-  res.send("valorant");
-});
+router.get('/', (_req, res) => {
+  res.send('valorant')
+})
 
-router.post("/", (_req, res) => {
-  res.send("saving valorant");
-});
+router.post('/', (_req, res) => {
+  res.send('saving valorant')
+})
 
-export default router;
+export default router

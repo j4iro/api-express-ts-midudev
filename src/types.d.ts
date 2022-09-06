@@ -1,12 +1,12 @@
-export type Weather = "sunny" | "rainy" | "cloudy" | "windy";
-export type Visibility = "great" | "good" | "ok";
+export type Weather = 'sunny' | 'rainy' | 'cloudy' | 'windy'
+export type Visibility = 'great' | 'good' | 'ok'
 
 export interface DiaryEntry {
-  id: number;
-  date: string;
-  weather: Weather;
-  visibility: Visibility;
-  comment: string;
+  id: number
+  date: string
+  weather: Weather
+  visibility: Visibility
+  comment: string
 }
 
 // Asi se hereda
