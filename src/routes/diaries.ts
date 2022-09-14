@@ -1,9 +1,10 @@
 import express from 'express' // ESModule
+import * as diaryServices from '../services/diaryService'
 
 const router = express.Router()
 
 router.get('/', (_req, res) => {
-  res.send('valorant')
+  res.send(diaryServices.getEntriesWithoutSensitiveInfo())
 })
 
 router.post('/', (_req, res) => {

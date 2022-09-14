@@ -14,7 +14,7 @@ app.get('/api/v1/users', (_req, res) => {
   ])
 })
 
-app.use('api/diaries', diarieRouter)
+app.use('/api/diaries', diarieRouter)
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`)

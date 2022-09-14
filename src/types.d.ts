@@ -13,3 +13,12 @@ export interface DiaryEntry {
 // export interface SpecialDiaryEntry extends DiaryEntry {
 //   flightNumber: number;
 // }
+
+// Cuando necesitemos excluir algunas propiedades de una entidad
+// export type NonSensitiveInfoDiaryEntry = Pick<
+// DiaryEntry,
+// 'id' | 'date',
+// 'weather' | 'visibility'
+// >
+
+export type NonSensitiveInfoDiaryEntry = Omit<DiaryEntry, 'comment'>
