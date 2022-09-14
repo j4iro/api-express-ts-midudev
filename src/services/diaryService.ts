@@ -7,6 +7,15 @@ export const getEntries = (): DiaryEntry[] => {
   return diaries
 }
 
+export const findById = (id: number): NonSensitiveInfoDiaryEntry | undefined => {
+  const entry = diaries.find(entry => entry.id === id)
+  if (entry != null) {
+    const { comment, ...restOfDiaryEntries } = entry
+    return restOfDiaryEntries
+  }
+  return undefined
+}
+
 export const getEntriesWithoutSensitiveInfo = (): NonSensitiveInfoDiaryEntry[] => {
   return diaries.map(({ id, date, weather, visibility }) => {
     return { id, date, weather, visibility }
