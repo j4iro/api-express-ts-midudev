@@ -1,4 +1,5 @@
-import { NewDiaryEntry, Weather } from './types'
+import { NewDiaryEntry } from './types'
+import { Weather, Visibility } from './enums'
 
 const parseComment = (commentFromRequest: any): string => {
   if (!isString(commentFromRequest)) {
@@ -15,16 +16,33 @@ const parseDate = (dateFromRequest: any): string => {
 }
 
 const parseWeather = (weatherFromRequest: any): Weather => {
-  if (!isString(weatherFromRequest)) {
+  if (!isString(weatherFromRequest) || !isWeather(weatherFromRequest)) {
     throw new Error('Incorrect or missing weather')
   }
 
   return weatherFromRequest
 }
 
+const parseVisibility = (visibilityFromRequest: any): Visibility => {
+  if (!isString(visibilityFromRequest) || !isVisibility(visibilityFromRequest)) {
+    throw new Error('Incorrect or missing visibility')
+  }
+
+  return visibilityFromRequest
+}
+
+const isWeather = (string: any): boolean => {
+  return Object.values(Weather).includes(string)
+}
+
+const isVisibility = (string: any): boolean => {
+  return Object.values(Visibility).includes(string)
+}
+
 const isString = (string: any): boolean => {
   return typeof string !== 'string'
 }
+
 const isDate = (string: any): boolean => {
   return Boolean(Date.parse(string))
 }
@@ -33,10 +51,11 @@ const toNewDiaryEntry = (object: any): NewDiaryEntry => {
   const newDiary: NewDiaryEntry = {
     comment: parseComment(object.comment),
     date: parseDate(object.date),
-    weather: parseWeather(object.weather)
+    weather: parseWeather(object.weather),
+    visibility: parseVisibility(object.visibility)
   }
 
   return newDiary
 }
 
-export default { toNewDiaryEntry }
+export default toNewDiaryEntry

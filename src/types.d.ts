@@ -1,5 +1,7 @@
-export type Weather = 'sunny' | 'rainy' | 'cloudy' | 'windy'
-export type Visibility = 'great' | 'good' | 'ok'
+// export type Weather = 'sunny' | 'rainy' | 'cloudy' | 'windy'
+// export type Visibility = 'great' | 'good' | 'ok'
+
+// Weather para rehusar en validaciones
 
 export interface DiaryEntry {
   id: number

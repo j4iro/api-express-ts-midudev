@@ -1,18 +1,19 @@
 import { DiaryEntry } from '../types'
+import { Weather, Visibility } from '../enums'
 
 const diaryEntries: DiaryEntry[] = [
   {
     id: 1,
     date: '2021-04-02',
-    weather: 'sunny',
-    visibility: 'good',
+    weather: Weather.Rainy,
+    visibility: Visibility.Good,
     comment: 'todo nice'
   },
   {
     id: 2,
     date: '2021-04-03',
-    weather: 'sunny',
-    visibility: 'great',
+    weather: Weather.Sunny,
+    visibility: Visibility.Great,
     comment: 'bad bad'
   }
 ]
